@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748894024146",
+    "project_id": "project4-6ef76",
+    "storage_bucket": "project4-6ef76.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748894024146:android:b628b302c2d973cf89d80b",
+        "android_client_info": {
+          "package_name": "com.laptrinhdidong.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5dVlFFwj-eSEqQ468S3y3txIuY43YP4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
