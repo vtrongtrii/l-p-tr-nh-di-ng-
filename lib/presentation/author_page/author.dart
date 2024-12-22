@@ -27,9 +27,9 @@ class Author extends StatelessWidget {
                   Text(
                     'Haruki Murakami',
                     style: TextStyle(
-                      fontFamily: 'Magra',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                       color:  Colors.white,                    
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
                     ),
                   ),
                 ],
@@ -52,9 +52,9 @@ class Author extends StatelessWidget {
                   Text(
                     'Nguyễn Nhật Ánh',
                     style: TextStyle(
-                      fontFamily: 'Magra',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                       color:  Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
                     ),
                   ),
                 ],
@@ -77,9 +77,9 @@ class Author extends StatelessWidget {
                   Text(
                     'J.K.Rowling',
                     style: TextStyle(
-                      fontFamily: 'Magra',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                       color:  Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
                     ),
                   ),
                 ],
@@ -102,9 +102,9 @@ class Author extends StatelessWidget {
                   Text(
                     'Stephen King',
                     style: TextStyle(
-                      fontFamily: 'Magra',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                      color:  Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
                     ),
                   ),
                 ],
