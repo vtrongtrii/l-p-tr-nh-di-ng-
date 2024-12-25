@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laptrinhdidong/presentation/Login/Login.dart';
 import 'package:laptrinhdidong/presentation/home_page/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -22,7 +23,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home:
+      Login(),
     );
   }
 }
