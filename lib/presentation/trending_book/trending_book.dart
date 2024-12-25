@@ -55,6 +55,7 @@ class TrendingBook extends StatelessWidget {
                           author: book['author'],
                           description: book['description'],
                           cover: book['cover'],
+                          url: book['url'],
                         ),
                       ),
                     );

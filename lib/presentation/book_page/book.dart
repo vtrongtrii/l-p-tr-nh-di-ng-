@@ -18,6 +18,7 @@ class Book extends StatelessWidget {
         'author': data['author'] ?? 'Unknown Author',
         'description': data['description'] ?? 'No Description',
         'cover': data['cover'] ?? '',
+        'url':data['url'] ?? ''
       };
     }).toList();
   }
@@ -57,6 +58,7 @@ class Book extends StatelessWidget {
                           author: book['author'],
                           description: book['description'],
                           cover: book['cover'],
+                          url: book['url'],
                         ),
                       ),
                     );
