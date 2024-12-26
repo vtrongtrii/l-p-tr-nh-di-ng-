@@ -104,9 +104,9 @@ class BookDetail extends StatelessWidget {
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.book),
-                      SizedBox(width: 10, height: 30,),
                       Text('Đọc ngay', style: TextStyle(fontSize: 20), ),
+                      SizedBox(width: 10, height: 30,),
+                      Icon(Icons.arrow_circle_right)
                     ],
                   ),
                 ),

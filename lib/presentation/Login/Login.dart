@@ -17,9 +17,9 @@ class Login extends StatelessWidget {
           key: _formKey,
           child: Column(
             children:<Widget>[
-              SizedBox(height: 220.0),
+              const SizedBox(height: 220.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText:'Tên Đăng Nhập',
                   border: OutlineInputBorder(),
                 ),
@@ -31,9 +31,9 @@ class Login extends StatelessWidget {
                 },
 
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Mật Khẩu',
                   border: OutlineInputBorder(),
                 ),
@@ -46,29 +46,29 @@ class Login extends StatelessWidget {
                 },
               ),
               ////////////
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               ElevatedButton(onPressed:() {
                 if(_formKey.currentState!.validate()){
                   //
                 }
               },
-                child: Text('Đăng nhập'),
+                child: const Text('Đăng nhập'),
               ),
               ////////
-              Align(
+              const Align(
               alignment:Alignment.center,
               child: Text("Hãy chọn phương thức đăng nhập khác"),
               ),
 
-              SizedBox(height:160,),
-              Align(
+              const SizedBox(height:160,),
+              const Align(
                 alignment:Alignment.center,
                 child: Text("Bạn chưa có tài khoản?"),
               ),
 
-              SizedBox(height:20,),
+              const SizedBox(height:20,),
               ElevatedButton(onPressed:() {},
-                child: Text('Đăng Ký'),
+                child: const Text('Đăng Ký'),
               ),
             ],
           ),
