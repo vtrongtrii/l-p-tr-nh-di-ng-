@@ -17,9 +17,9 @@ class Register extends StatelessWidget {
           key: _formKey,
           child: Column(
             children:<Widget>[
-              SizedBox(height: 150.0),
+              const SizedBox(height: 150.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText:'Tên Đăng Nhập',
                   border: OutlineInputBorder(),
                 ),
@@ -31,9 +31,9 @@ class Register extends StatelessWidget {
                 },
 
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Nhập mật Khẩu',
                   border: OutlineInputBorder(),
                 ),
@@ -46,9 +46,9 @@ class Register extends StatelessWidget {
                 },
               ),
               /////
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Xác nhận mật khẩu',
                   border: OutlineInputBorder(),
                 ),
@@ -61,13 +61,13 @@ class Register extends StatelessWidget {
                 },
               ),
               ////////////
-              SizedBox(height:20,),
+              const SizedBox(height:20,),
               ElevatedButton(onPressed:() {
                 if(_formKey.currentState!.validate()){
                   //
                 }
               },
-                child: Text('Đăng Ký'),
+                child: const Text('Đăng Ký'),
               ),
             ],
           ),

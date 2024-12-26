@@ -1,7 +1,20 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- The INTERNET permission is required for development. Specifically,
-         the Flutter tool needs it to communicate with the running application
-         to allow setting breakpoints, to provide hot reload, etc.
-    -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+     package="com.laptrinhdidong.app">
+
+    <!-- Quyền truy cập Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Chỉ cần quyền truy cập Internet, bỏ các quyền không cần thiết -->
+    <!-- Nếu cần quyền lưu trữ tạm thời, đảm bảo sử dụng Scoped Storage -->
+
+    <application
+        android:label="@string/app_name"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/LaunchTheme">
+
+        <!-- Đảm bảo các phần khác trong ứng dụng đều được khai báo đúng -->
+    </application>
+
 </manifest>

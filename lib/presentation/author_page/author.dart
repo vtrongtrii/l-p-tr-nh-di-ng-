@@ -1,117 +1,93 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:laptrinhdidong/presentation/author_page/author_detail.dart';
 
 class Author extends StatelessWidget {
   const Author({super.key});
 
+  // Hàm lấy danh sách tác giả từ Firestore
+  Future<List<Map<String, dynamic>>> fetchAuthor() async {
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('author').get();
+
+    return snapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return {
+        'name': data['name'] ?? 'No name',
+        'description': data['description'] ?? 'No Description',
+        'url': data['url'] ?? '',
+      };
+    }).toList();
+  }
+
   Widget author(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12), // Khoảng cách cạnh màn hình
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal, // Cho phép vuốt ngang
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start, // Căn chỉnh các phần tử Row từ trái
-          children: [
-            GestureDetector(
-              onTap: () {},
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundImage: NetworkImage(
-                      'https://media.newyorker.com/photos/5c5371239d69a04dde6b2a5e/master/w_2560%2Cc_limit/TNYInterview-Murakami.jpg',
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: FutureBuilder<List<Map<String, dynamic>>>(
+        future: fetchAuthor(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('No author found'));
+          }
+
+          List<Map<String, dynamic>> authors = snapshot.data!;
+
+          return SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: authors.map((author) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0), // Khoảng cách giữa các phần tử
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AuthorDetail(
+                            name: author['name'],
+                            description: author['description'],
+                            url: author['url'],
+                          ),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: NetworkImage(author['url']),
+                          onBackgroundImageError: (_, __) =>
+                              const Icon(Icons.error, size: 50),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          author['name'],
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Haruki Murakami',
-                    style: TextStyle(
-                       color:  Colors.white,                    
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              }).toList(),
             ),
-            const SizedBox(width: 5),
-            GestureDetector(
-              onTap: () {},
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundImage: NetworkImage(
-                      'http://phunuvietnam.mediacdn.vn/media/news/44c9a4254627e41e9842bbf690a37dcc/1-nv.jpg',
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Nguyễn Nhật Ánh',
-                    style: TextStyle(
-                       color:  Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 5),
-            GestureDetector(
-              onTap: () {},
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundImage: NetworkImage(
-                      'https://lovebookslovelife.vn/wp-content/uploads/2019/11/jjk-01-1200x1200.png',
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'J.K.Rowling',
-                    style: TextStyle(
-                       color:  Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 5),
-            GestureDetector(
-              onTap: () {},
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundImage: NetworkImage(
-                      'https://hips.hearstapps.com/hmg-prod/images/gettyimages-187751114.jpg?resize=1200:*',
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Stephen King',
-                    style: TextStyle(
-                      color:  Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

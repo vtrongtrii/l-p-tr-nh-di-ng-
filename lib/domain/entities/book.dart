@@ -5,6 +5,7 @@ class Book {
   final String description;
   final String cover;
   final String genre;
+  final String url;
 
   Book({
     required this.id,
@@ -12,7 +13,8 @@ class Book {
     required this.author,
     required this.description,
     required this.cover,
-    required this.genre
+    required this.genre,
+    required this.url
   });
 
   // Chuyển từ Map Firestore sang Entity
@@ -23,7 +25,8 @@ class Book {
       author: data['author'] ?? '',
       description: data['description'] ?? '',
       cover: data['cover'] ?? '',
-      genre: data['genre'] ?? ''
+      genre: data['genre'] ?? '',
+      url: data['url'] ?? ''
     );
   }
 
@@ -34,7 +37,8 @@ class Book {
       'author': author,
       'description': description,
       'cover': cover,
-      'genre': genre
+      'genre': genre,
+      'url': url
     };
   }
 }

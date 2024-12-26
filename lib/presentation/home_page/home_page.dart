@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laptrinhdidong/presentation/Login/Login.dart';
 import 'package:laptrinhdidong/presentation/author_page/author.dart';
 import 'package:laptrinhdidong/presentation/book_page/book.dart';
 import 'package:laptrinhdidong/presentation/trending_book/trending_book.dart';
@@ -35,7 +36,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         ),
         actions: [
           TextButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Login() // Dẫn đến trang đọc sách
+                              ),
+                            );
+            },
             label: const Text(
               'Đăng nhập',
               style: TextStyle(

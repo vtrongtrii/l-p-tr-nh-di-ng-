@@ -14,8 +14,8 @@ class CheckingRegister extends StatelessWidget {
         child:Form(
         child: Column(
           children:<Widget>[
-            SizedBox(height:200,),
-    Align(
+            const SizedBox(height:200,),
+    const Align(
     alignment:Alignment.center,
       child: Text("HÃY NHẤN VÀO ĐƯỜNG LINK ĐÃ GỬI QUA EMAIL ĐỂ KÍCH HOẠT TÀI KHOẢN",
         style: TextStyle(
@@ -23,11 +23,11 @@ class CheckingRegister extends StatelessWidget {
           fontWeight: FontWeight.bold,),
       ),
     ),
-            SizedBox(height:20,),
+            const SizedBox(height:20,),
 
             ElevatedButton(onPressed:() {
             },
-              child: Text('Đăng Ký'),
+              child: const Text('Đăng Ký'),
             ),
 
           ],
